@@ -13,7 +13,7 @@ func main() {
 		out, _ := exec.Command("git", "config", "remote.origin.url").Output()
 		repo_url := strings.TrimSpace(string(out))
 
-		re := regexp.MustCompile(`github\.com[:\/](.*)(\.git)$`)
+		re := regexp.MustCompile(`github\.com[:\/](.*)(\.git)?$`)
 		match := re.FindStringSubmatch(repo_url)
 
 		if len(match) > 1 {
